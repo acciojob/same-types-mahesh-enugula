@@ -2,7 +2,13 @@ function isSameType(value1, value2) {
   //your js code here
 	if (Number.isNaN(value1) && Number.isNaN(value2)) {
 		return true;
-	}return typeof value1 === typeof value2;
+	}// Check if types of both values are the same
+    if (typeof value1 === 'string' && typeof value2 === 'number') {
+        value2 = Number(value2);
+    } else if (typeof value2 === 'string' && typeof value1 === 'number') {
+        value1 = Number(value1);
+    }
+	return typeof value1 === typeof value2;
 }
 
 // do not change the code below.
